@@ -625,6 +625,10 @@ video {
   height: 100%;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -655,6 +659,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[70\%\] {
+  width: 70%;
 }
 
 .transform {
