@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+   .original {
+      @apply focus:shadow-xl border-b-2 border-white;
+   }
+}
+@layer components {
+   .error {
+      @apply border-b-rose-600 focus:border-b-rose-600;
+   }
+}
+@layer components {
+   .successful {
+      @apply border-b-green-600 focus:border-b-green-600 border-b-[3px]; 
+      /* @apply valid:bg-green-400 text-white border-none;  */
+   }
+}
+
+.disable {
+   background-color: #7badff;
+}
+.enable {
+   background-color: #2828f0;
+}
+
+@keyframes shake {
+   0%,
+   100% {
+      transform: translateX(0) ;
+   }
+   20%,
+   80% {
+      transform: translateX(-10px) ;
+   }
+   40%,
+   60% {
+      transform: translateX(10px) ;
+   }
+}
+.shake {
+   animation: shake 0.3s ease-in-out;
+}
