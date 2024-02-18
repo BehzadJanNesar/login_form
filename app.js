@@ -11,7 +11,10 @@ const capchaInput = document.querySelector("#capcha_input"),
    capchaError = document.querySelector(".capcha--error_text"),
    passError = document.querySelector(".password--error_text"),
    nameError = document.querySelector(".name--error_text"),
-   textError = document.querySelector(".email--error_text");
+   textError = document.querySelector(".email--error_text"),
+   succsesPm = document.querySelector("#succses-pm"),
+   alertText = document.querySelector("#alert_text"),
+   close = document.querySelector("#close");
 let CpachaText = null;
 
 // Capcha code generator function
@@ -48,6 +51,7 @@ function formChecker() {
       }
    });
    if (input.classList.contains("successful")) {
+      alertText.textContent = `${firstInput.value} , you have successfully logged in`;
       firstInput.value = "";
       emaliInput.value = "";
       passwordInput.value = "";
@@ -55,19 +59,30 @@ function formChecker() {
       inputs.forEach((e) => e.classList.remove("successful"));
       capchaGenerator();
       firstInput.focus();
+      // Succses alert
+      succsesPm.classList.remove("hide");
+      succsesPm.classList.add("show");
+      setTimeout(() => {
+         succsesPm.classList.add("hide");
+      }, 5000);
    }
 }
+close.addEventListener("click", () => {
+   succsesPm.classList.add("hide");
+});
 
 // validate the name input field
 function validateName() {
    if (firstInput.value) {
       firstInput.classList.add("successful");
       nameError.classList.add("hidden");
-   } else{
+      nameError.textContent = "";
+   } else {
       firstInput.classList.remove("successful");
       firstInput.classList.add("error");
       nameError.classList.remove("hidden");
-   } 
+      nameError.textContent = "* Name can't be blanck";
+   }
 }
 
 // validate the email input field

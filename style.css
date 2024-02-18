@@ -43,3 +43,41 @@
 .shake {
    animation: shake 0.3s ease-in-out;
 }
+
+.show {
+   animation: show-alert .8s ease forwards;
+   display: flex;
+   opacity: 1;
+}
+
+@keyframes show-alert {
+   0% {
+      transform: translateX(100%);
+   }
+   40% {
+      transform: translateX(-10%);
+   }
+   80% {
+      transform: translateX(0%);
+   }
+   100% {
+      transform: translateX(-10px);
+   }
+}
+.hide {
+   animation: hide-alert .8s ease forwards;
+}
+@keyframes hide-alert {
+   0% {
+      transform: translateX(-10px);
+   }
+   40% {
+      transform: translateX(0%);
+   }
+   80% {
+      transform: translateX(-10%);
+   }
+   100% {
+      transform: translateX(1000px);
+   }
+}
